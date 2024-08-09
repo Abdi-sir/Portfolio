@@ -1,0 +1,25 @@
+
+@import 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css';
+
+.fade-in {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+/* Optional: For smoother appearance of elements on scroll */
+/* Keyframes for slide-in animation */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade-in animation class */
+.fade-in {
+  animation: slideInUp 1s ease-in-out forwards;
+}
