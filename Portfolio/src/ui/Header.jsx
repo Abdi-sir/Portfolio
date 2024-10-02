@@ -21,23 +21,30 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleLogoClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <header
-      className={`fixed top-0 left-0 w-full transition-all duration-300 ${
-        isScrolled ? 'bg-white bg-opacity-90' : 'bg-slate-50'
-      } border-b border-gray-200 z-50 `}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        isScrolled ? 'bg-white bg-opacity-90 shadow-lg' : 'bg-[#151b25]' // Black background when not scrolled
+      } border-b border-black`}
     >
       <nav className="px-4 lg:px-6 py-2.5">
         <div className="flex flex-wrap justify-between items-center max-w-screen-xl mx-auto">
-          <a href="#home" className="flex items-center">
-            <img src="https://your-logo-url.com" className="mr-3 h-6 sm:h-9" alt="Logo" />
-            <span className="self-center text-xl font-semibold whitespace-nowrap">Logo</span>
+          <a
+            onClick={handleLogoClick}
+            className="flex items-center text-xl font-semibold cursor-pointer"
+            style={{ fontWeight: 'bold', fontFamily: "'Poppins', sans-serif", fontSize: '1rem', color: 'white' }} // Set logo color to white
+          >
+            <span className="text-white">&lt;A/&gt;</span> {/* Logo text in white */}
           </a>
+
           <div className="lg:hidden">
             <button
-              data-collapse-toggle="mobile-menu-2"
               type="button"
-              className="inline-flex items-center p-2 ml-1 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+              className="inline-flex items-center p-2 ml-1 text-sm text-white rounded-lg hover:bg-[#192e41] focus:outline-none focus:ring-2 focus:ring-[#52688f]" // Set button text color to white
               aria-controls="mobile-menu-2"
               aria-expanded={isOpen}
               onClick={toggleMenu}
@@ -69,49 +76,20 @@ const Header = () => {
               </svg>
             </button>
           </div>
+
           <div className={`w-full lg:flex lg:w-auto ${isOpen ? 'block' : 'hidden'}`} id="mobile-menu-2">
             <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-              <li>
-                <a
-                  href="#home"
-                  className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0"
-                  aria-current="page"
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#about"
-                  className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0"
-                >
-                  About
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#work"
-                  className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0"
-                >
-                  Work
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#skills"
-                  className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0"
-                >
-                  Skills
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#contact"
-                  className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 lg:hover:bg-transparent lg:border-0 lg:hover:text-primary-700 lg:p-0"
-                >
-                  Contact
-                </a>
-              </li>
+              {['Home', 'About', 'Work', 'Skills', 'Contact'].map((item) => (
+                <li key={item}>
+                  <a
+                    href={`#${item.toLowerCase()}`}
+                    className="block py-2 pr-4 pl-3 text-white border-b border-gray-100 hover:text-[#52688f] lg:hover:bg-transparent lg:border-0 lg:p-0 transition-colors duration-300" // Set menu item text color to white
+                    aria-current={item === 'Home' ? 'page' : undefined}
+                  >
+                    {item}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
         </div>
@@ -119,5 +97,8 @@ const Header = () => {
     </header>
   );
 };
+
+
+
 
 export default Header;

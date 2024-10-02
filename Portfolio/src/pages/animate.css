@@ -1,0 +1,51 @@
+/* Import Animate.css for global animations */
+@import 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css';
+
+/* Keyframes for slide-in animations */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fade-in animation class */
+.fade-in-left {
+  animation: slideInLeft 1s ease-in-out forwards;
+}
+
+.fade-in-right {
+  animation: slideInRight 1s ease-in-out forwards;
+}
+
+/* Typewriter cursor blinking animation */
+@keyframes cursor-blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+.typewriter::after {
+  content: '|';
+  animation: cursor-blink 0.75s step-end infinite;
+}
+
+/* Scroll animation */
+.scroll-animate {
+  opacity: 0;
+}

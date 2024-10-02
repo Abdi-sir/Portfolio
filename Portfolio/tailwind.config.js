@@ -9,11 +9,12 @@ export default {
        fontFamily: {
         'serif-custom': ['Georgia', 'Times New Roman', 'Times', 'serif'],
       },
+      colors: {
+        lightblue: '#ADD8E6',
+        cream: '#FFFDD0',
+      },
       fontSize: {
         '3rem': '3rem',
-      },
-      colors: {
-        'custom-color': '#170f4ed5',
       },
     },
   },
