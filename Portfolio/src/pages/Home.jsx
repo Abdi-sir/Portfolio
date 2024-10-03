@@ -62,10 +62,10 @@ function Home() {
       "Abdella, Freelancer",
     ];
 
-    const typingSpeed = 150; // Faster typing speed
-    const deletingSpeed = 100; // Faster deleting speed
-    const pauseDuration = 1500; // Shorter pause
-    const clearDuration = 1000; // Shorter clear time
+    const typingSpeed = 300; // Slower typing speed
+    const deletingSpeed = 150; // Slower deleting speed
+    const pauseDuration = 2000; // Longer pause before next text
+    const clearDuration = 500; // Shorter clear time
 
     const type = () => {
       if (index < texts.length) {
@@ -104,7 +104,7 @@ function Home() {
     const screenWidth = window.innerWidth;
     setIsLeftSide(clientX < screenWidth / 2);
   };
-
+  
   return (
     <section
       id="home"
@@ -132,12 +132,12 @@ function Home() {
       </div>
 
       {/* Content Overlay */}
-      <div className={`relative flex flex-col md:flex-row items-center justify-center p-4 max-w-[1768px] w-full space-y-8 md:space-y-0 md:space-x-8 z-20 ${isLeftSide ? 'pointer-events-auto' : 'pointer-events-none'}`}>
+      <div className={`relative flex flex-col md:flex-row items-center justify-center p-4 max-w-[1768px] w-full space-y-8 md:space-y-0 md:space-x-8 z-20 ${isLeftSide ? 'pointer-events-auto' : 'pointer-events-none '} `}>
         {/* Profile Section */}
         <Profile profile={profile} />
 
         {/* Middle Section */}
-        <div className={`flex flex-col justify-center space-y-4 bg-gradient-to-r p-8 rounded-3xl shadow-lg flex-[0.8] ${showContent ? 'animate__animated animate__slideInUp scroll-animate' : 'opacity-0'}`}>
+        <div className={`flex flex-col justify-center space-y-4 bg-gradient-to-r p-8 rounded-3xl shadow-2xl flex-[0.8] ${showContent ? 'animate__animated animate__slideInUp scroll-animate' : 'opacity-0'} `}>
           {/* Title */}
           <h2 className="text-[10vw] md:text-[117px] font-extrabold text-[#05263B]">Developer</h2>
 

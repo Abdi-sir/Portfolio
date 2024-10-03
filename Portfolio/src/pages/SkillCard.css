@@ -1,0 +1,14 @@
+.slide-in {
+  animation: slide-in 1s ease-out forwards; /* Slide-in animation */
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translateX(-30px); /* Start slightly off the left */
+    opacity: 0; /* Start hidden */
+  }
+  100% {
+    transform: translateX(0); /* End at original position */
+    opacity: 1; /* End visible */
+  }
+}

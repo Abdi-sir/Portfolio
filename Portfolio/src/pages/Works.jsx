@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import { FaEye, FaGithub } from 'react-icons/fa';
 
 const projects = [
@@ -5,61 +6,119 @@ const projects = [
     title: "Project 1",
     link: "https://example.com/project1",
     github: "https://github.com/username/project1",
-    image: "https://via.placeholder.com/300", // Replace with actual image URL
-    languages: ["HTML", "CSS", "JavaScript"], // Add programming languages
+    image: "https://via.placeholder.com/300",
+    languages: ["HTML", "CSS", "JavaScript"],
     description: "A brief description of Project 1.",
   },
   {
     title: "Project 2",
     link: "https://example.com/project2",
     github: "https://github.com/username/project2",
-    image: "https://via.placeholder.com/300", // Replace with actual image URL
-    languages: ["React", "Node.js"], // Add programming languages
+    image: "https://via.placeholder.com/300",
+    languages: ["React", "Node.js"],
     description: "A brief description of Project 2.",
   },
   {
     title: "Project 3",
     link: "https://example.com/project3",
     github: "https://github.com/username/project3",
-    image: "https://via.placeholder.com/300", // Replace with actual image URL
-    languages: ["React", "Node.js"], // Add programming languages
+    image: "https://via.placeholder.com/300",
+    languages: ["React", "Node.js"],
     description: "A brief description of Project 3.",
   },
   {
     title: "Project 4",
     link: "https://example.com/project4",
     github: "https://github.com/username/project4",
-    image: "https://via.placeholder.com/300", // Replace with actual image URL
-    languages: ["React", "Node.js"], // Add programming languages
+    image: "https://via.placeholder.com/300",
+    languages: ["React", "Node.js"],
     description: "A brief description of Project 4.",
   },
-  // Add more projects as needed
 ];
 
 function Works() {
+  const [showContent, setShowContent] = useState(false);
+  const [splineScale, setSplineScale] = useState(1);
+  const workRef = useRef(null); // Ref for the project section
+
+  useEffect(() => {
+    setTimeout(() => {
+      setShowContent(true);
+    }, 500);
+
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+
+      // Scale effect based on scroll
+      if (scrollPosition <= windowHeight) {
+        const scaleFactor = 1 + scrollPosition / windowHeight;
+        setSplineScale(scaleFactor > 1.8 ? 1.8 : scaleFactor); // Slightly reduced max scale
+      }
+
+      // Smooth scroll to the next section
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        window.scrollTo({
+          top: window.innerHeight,
+          behavior: 'smooth',
+        });
+      }
+
+      // Animate elements on scroll
+      document.querySelectorAll('.scroll-animate').forEach((element) => {
+        const rect = element.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          element.classList.add('animate__animated', 'animate__slideInUp');
+        } else {
+          element.classList.remove('animate__slideInUp');
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('slide-in-active');
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    if (workRef.current) {
+      observer.observe(workRef.current);
+    }
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (workRef.current) {
+        observer.unobserve(workRef.current);
+      }
+    };
+  }, []);
+
   return (
-    <section id="work" className="min-h-screen bg-[#abb5c6] py-16">
+    <section id="work" ref={workRef} className={`min-h-screen bg-[#abb5c6] py-16 ${showContent ? 'fade-in' : 'opacity-0'}`}>
       <div className="container mx-auto px-6">
-        {/* Section Title */}
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold text-[#05263b] mb-4">Projects</h1>
         </div>
 
-        {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="relative bg-white rounded-lg shadow-lg overflow-hidden group transition-transform transform hover:scale-105 flex flex-col justify-between"
+              className="relative bg-white rounded-lg shadow-lg overflow-hidden group transition-transform transform hover:scale-105 flex flex-col justify-between scroll-animate"
             >
-              {/* Project Image */}
               <img
                 src={project.image}
                 alt={project.title}
-                className="w-full h-48 object-cover"
+                className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
               />
 
-              {/* Programming Languages */}
               <div className="flex space-x-2 p-4">
                 {project.languages.map((lang, idx) => (
                   <span
@@ -71,7 +130,6 @@ function Works() {
                 ))}
               </div>
 
-              {/* Project Info */}
               <div className="p-4 flex flex-col justify-between flex-grow">
                 <div>
                   <a
@@ -85,8 +143,7 @@ function Works() {
                   <p className="text-[#05263b]">{project.description}</p>
                 </div>
 
-                {/* Overlay for Links */}
-                <div className="absolute inset-0 bg-black bg-opacity-75 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300 space-x-4">
+                <div className="absolute inset-0 bg-black bg-opacity-75 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity duration-300">
                   <a
                     href={project.github}
                     target="_blank"

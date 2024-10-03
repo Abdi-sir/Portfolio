@@ -1,18 +1,81 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FaLinkedin, FaGithub, FaWhatsapp, FaTelegram, FaEnvelope } from 'react-icons/fa';
-import SocialMediaLinks from '../ui/SocialMediaLinks';
-
-
 
 const Contact = () => {
+    const aboutRef = useRef(null);
+    const [showContent, setShowContent] = useState(false);
+    const [splineScale, setSplineScale] = useState(1);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setShowContent(true);
+        }, 500);
+
+        const handleScroll = () => {
+            const scrollPosition = window.scrollY;
+            const windowHeight = window.innerHeight;
+
+            // Scale effect based on scroll
+            if (scrollPosition <= windowHeight) {
+                const scaleFactor = 1 + scrollPosition / windowHeight;
+                setSplineScale(scaleFactor > 1.8 ? 1.8 : scaleFactor); // Slightly reduced max scale
+            }
+
+            // Smooth scroll to the next section
+            if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+                window.scrollTo({
+                    top: window.innerHeight,
+                    behavior: 'smooth',
+                });
+            }
+
+            // Animate elements on scroll
+            document.querySelectorAll('.scroll-animate').forEach((element) => {
+                const rect = element.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    element.classList.add('animate__animated', 'animate__slideInUp');
+                } else {
+                    element.classList.remove('animate__slideInUp');
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('slide-in-active');
+                    }
+                });
+            },
+            { threshold: 0.2 }
+        );
+
+        if (aboutRef.current) {
+            observer.observe(aboutRef.current);
+        }
+
+        window.addEventListener('scroll', handleScroll);
+
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+            if (aboutRef.current) {
+                observer.unobserve(aboutRef.current);
+            }
+        };
+    }, []);
+
     return (
-        <section id="contact" className="min-h-screen bg-[#EAEFF2] py-16">
+        <section
+            id="contact"
+            ref={aboutRef}
+            className={`min-h-screen bg-[#EAEFF2] py-16 transition-opacity duration-500 ${showContent ? 'opacity-100' : 'opacity-0'}`}
+        >
             <div className="container mx-auto px-6">
                 <h1 className="text-5xl font-bold text-[#05263b] mb-12 text-center">Contact Me</h1>
 
                 {/* Contact Icons */}
                 <div className="text-center mb-8">
-                    {/* Existing contact icons */}
                     <div className="inline-block mx-2">
                         <a href="mailto:abdellasiraje00@gmail.com" className="text-3xl text-[#aeb8c4] hover:text-[#9ca6b8]">
                             <FaEnvelope />
@@ -62,7 +125,7 @@ const Contact = () => {
 
                 {/* Email Form */}
                 <div className="w-4/5 mx-auto">
-                    <form className="bg-[#aeb8c4] bg-opacity-75 p-8 rounded-lg shadow-md">
+                    <form className="bg-[#aeb8c4] bg-opacity-75 p-8 rounded-lg shadow-md scroll-animate">
                         <div className="mb-4">
                             <input
                                 type="text"
@@ -101,8 +164,6 @@ const Contact = () => {
                     </form>
                 </div>
             </div>
-
-            
         </section>
     );
 };

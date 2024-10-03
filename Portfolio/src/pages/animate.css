@@ -1,5 +1,5 @@
 /* Import Animate.css for global animations */
-@import 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css';
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css');
 
 /* Keyframes for slide-in animations */
 @keyframes slideInLeft {
@@ -24,7 +24,7 @@
   }
 }
 
-/* Fade-in animation class */
+/* Fade-in animation classes */
 .fade-in-left {
   animation: slideInLeft 1s ease-in-out forwards;
 }
@@ -45,7 +45,38 @@
   animation: cursor-blink 0.75s step-end infinite;
 }
 
-/* Scroll animation */
+/* Scroll animation classes */
 .scroll-animate {
-  opacity: 0;
+  opacity: 0; /* Start hidden */
+  transition: opacity 0.5s ease; /* Smooth opacity change */
+}
+
+.scroll-animate.slide-in-active {
+  opacity: 1; /* Become visible */
+}
+
+/* Hover effects */
+.bg-card {
+  background-color: #aeb8c4;
+  padding: 1.5rem; /* Adjust based on your design */
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease; /* Smooth scaling */
+}
+
+.bg-card:hover {
+  transform: scale(1.05); /* Scale effect on hover */
+}
+
+/* Image hover effect */
+.bg-card img {
+  width: 100%;
+  height: 10rem; /* Adjust based on your design */
+  object-fit: cover;
+  border-radius: 0.5rem; /* Match parent border-radius */
+  transition: transform 0.3s ease; /* Smooth scaling */
+}
+
+.bg-card img:hover {
+  transform: scale(1.05); /* Scale effect on hover */
 }

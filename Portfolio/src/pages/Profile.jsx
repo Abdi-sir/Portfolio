@@ -1,7 +1,10 @@
-import { useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
+import './SkillCard.css'; // Ensure your CSS file includes the necessary styles
 
 const SkillCard = ({ profile }) => {
   const [activeCategory, setActiveCategory] = useState('frontend');
+  const [isVisible, setIsVisible] = useState(false); // State to handle visibility for animation
+  const cardRef = useRef(null); // Create a reference to the card
 
   const skills = {
     frontend: ['React', 'Vue'],
@@ -10,8 +13,34 @@ const SkillCard = ({ profile }) => {
     uiux: ['Figma']
   };
 
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setIsVisible(true); // Set visible to true when in view
+          observer.unobserve(entry.target); // Stop observing after becoming visible
+        } else {
+          setIsVisible(false); // Reset when it goes out of view
+        }
+      });
+    });
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current); // Observe the card
+    }
+
+    return () => {
+      if (cardRef.current) {
+        observer.unobserve(cardRef.current); // Cleanup observer
+      }
+    };
+  }, []);
+
   return (
-    <div className="relative flex flex-col items-center justify-center bg-gradient-to-br from-[#aeb8c4] via-white to-[#9ca6b8] p-6 rounded-3xl shadow-lg w-64 md:w-72">
+    <div
+      ref={cardRef} // Attach the ref to the card
+      className={`relative flex flex-col items-center justify-center bg-gradient-to-br from-[#aeb8c4] via-white to-[#9ca6b8] p-6 rounded-3xl shadow-lg w-64 md:w-72 hover:scale-105 transition-transform duration-300 ${isVisible ? 'slide-in' : ''}`}
+    >
       {/* Profile Photo */}
       <div className="relative w-24 h-24 md:w-32 md:h-32 overflow-hidden rounded-full border border-[#163b50] shadow-lg transition-transform transform hover:scale-105">
         <img src={profile} alt="Profile photo" className="object-cover w-full h-full" />
@@ -73,7 +102,6 @@ const SkillCard = ({ profile }) => {
       
     </div>
   );
-  
 };
 
 export default SkillCard;
