@@ -28,7 +28,7 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white bg-opacity-90 shadow-lg' : 'bg-[#151b25]' // Black background when not scrolled
+        isScrolled ? 'bg-[#2F6D80] bg-opacity-90 shadow-lg' : 'bg-[#05263B]' // Black background when not scrolled
       } border-b border-black`}
     >
       <nav className="px-4 lg:px-6 py-2.5">

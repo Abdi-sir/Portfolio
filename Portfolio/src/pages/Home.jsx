@@ -5,6 +5,7 @@ import './Home.css'; // Import custom CSS if needed
 import Spline from '@splinetool/react-spline';
 import Profile from './Profile';
 import EmailButton from './EmailButton';
+import SocialMediaLinks from '../ui/SocialMediaLinks';
 
 function Home() {
   const [showContent, setShowContent] = useState(false);
@@ -110,7 +111,7 @@ function Home() {
       className="relative w-full min-h-screen flex items-center justify-center overflow-hidden"
       style={{
         fontFamily: '"Ubuntu", "Ubuntu Placeholder", sans-serif',
-        backgroundColor: '#bdc6d4',
+        backgroundColor: '#9CA6B8',
       }}
       onMouseMove={handleMouseMove}
     >
@@ -138,21 +139,22 @@ function Home() {
         {/* Middle Section */}
         <div className={`flex flex-col justify-center space-y-4 bg-gradient-to-r p-8 rounded-3xl shadow-lg flex-[0.8] ${showContent ? 'animate__animated animate__slideInUp scroll-animate' : 'opacity-0'}`}>
           {/* Title */}
-          <h2 className="text-[10vw] md:text-[117px] font-extrabold text-indigo-600">Developer</h2>
+          <h2 className="text-[10vw] md:text-[117px] font-extrabold text-[#05263B]">Developer</h2>
 
           {/* Introductory Text */}
           <div className="text-left text-gray-800 space-y-2">
             <p className="text-[8vw] md:text-[64px] font-semibold">
-              <span className="font-bold text-gray-900">Hey,</span>
+              <span className="font-bold text-[#2F6D80]">Hey,</span>
             </p>
             <p className="text-[8vw] md:text-[64px] font-semibold">
-              <span className="font-bold text-gray-900">I’m </span>
-              <span className="font-bold text-indigo-600">{text}</span>
+              <span className="font-bold text-[#2F6D80]">I’m </span>
+              <span className="font-bold text-[#05263B]">{text}</span>
             </p>
             <EmailButton />
           </div>
         </div>
       </div>
+      
     </section>
   );
 }

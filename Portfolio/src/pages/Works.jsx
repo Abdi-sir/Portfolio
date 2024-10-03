@@ -18,20 +18,20 @@ const projects = [
     description: "A brief description of Project 2.",
   },
   {
-    title: "Project 2",
-    link: "https://example.com/project2",
-    github: "https://github.com/username/project2",
+    title: "Project 3",
+    link: "https://example.com/project3",
+    github: "https://github.com/username/project3",
     image: "https://via.placeholder.com/300", // Replace with actual image URL
     languages: ["React", "Node.js"], // Add programming languages
-    description: "A brief description of Project 2.",
+    description: "A brief description of Project 3.",
   },
   {
-    title: "Project 2",
-    link: "https://example.com/project2",
-    github: "https://github.com/username/project2",
+    title: "Project 4",
+    link: "https://example.com/project4",
+    github: "https://github.com/username/project4",
     image: "https://via.placeholder.com/300", // Replace with actual image URL
     languages: ["React", "Node.js"], // Add programming languages
-    description: "A brief description of Project 2.",
+    description: "A brief description of Project 4.",
   },
   // Add more projects as needed
 ];
@@ -42,7 +42,7 @@ function Works() {
       <div className="container mx-auto px-6">
         {/* Section Title */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-900 mb-4">Projects</h1>
+          <h1 className="text-5xl font-bold text-[#05263b] mb-4">Projects</h1>
         </div>
 
         {/* Projects Grid */}
@@ -64,7 +64,7 @@ function Works() {
                 {project.languages.map((lang, idx) => (
                   <span
                     key={idx}
-                    className="bg-gray-200 text-gray-800 px-3 py-1 rounded-full text-sm"
+                    className="bg-[#9ca6b8] text-[#05263b] px-3 py-1 rounded-full text-sm"
                   >
                     {lang}
                   </span>
@@ -78,11 +78,11 @@ function Works() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block text-2xl font-semibold text-gray-900 mb-2 transition-opacity duration-300"
+                    className="block text-2xl font-semibold text-[#05263b] mb-2 transition-opacity duration-300"
                   >
                     {project.title}
                   </a>
-                  <p className="text-gray-600">{project.description}</p>
+                  <p className="text-[#05263b]">{project.description}</p>
                 </div>
 
                 {/* Overlay for Links */}
@@ -91,7 +91,7 @@ function Works() {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white text-2xl transform transition-transform duration-300 hover:scale-125"
+                    className="text-[#aeb8c4] text-2xl transform transition-transform duration-300 hover:scale-125"
                   >
                     <FaGithub />
                   </a>
@@ -99,7 +99,7 @@ function Works() {
                     href={project.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-white text-2xl transform transition-transform duration-300 hover:scale-125"
+                    className="text-[#aeb8c4] text-2xl transform transition-transform duration-300 hover:scale-125"
                   >
                     <FaEye />
                   </a>

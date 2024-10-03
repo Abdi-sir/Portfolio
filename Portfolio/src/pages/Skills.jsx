@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { FaReact, FaNodeJs, FaFigma, FaSass } from 'react-icons/fa';
 import { SiTailwindcss, SiJavascript, SiVuedotjs, SiSanity } from 'react-icons/si';
+import SocialMediaLinks from '../ui/SocialMediaLinks';
 
 const skillsData = [
   { name: 'Vue', category: 'FrontEnd', icon: <SiVuedotjs /> },
@@ -27,7 +28,7 @@ const Skills = () => {
       <div className="container mx-auto px-6">
         {/* Skills Header */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-gray-900 mb-4">Skills</h1>
+          <h1 className="text-5xl font-bold text-[#05263b] mb-4">Skills</h1>
           {/* Category Buttons */}
           <div className="flex justify-center space-x-4">
             {['All', 'FrontEnd', 'BackEnd', 'Mobile App', 'UI/UX'].map(category => (
@@ -35,8 +36,8 @@ const Skills = () => {
                 key={category}
                 onClick={() => setSelectedCategory(category)}
                 className={`py-2 px-4 rounded-lg text-lg font-semibold transition-transform duration-300 ${
-                  selectedCategory === category ? 'bg-blue-600 text-white scale-105' : 'bg-[#abb5c6] text-gray-900'
-                } hover:bg-blue-500 hover:text-white transform hover:scale-110`}
+                  selectedCategory === category ? 'bg-[#05263b] text-white scale-105' : 'bg-[#9ca6b8] text-[#05263b]'
+                } hover:bg-[#05263b] hover:text-white transform hover:scale-110`}
               >
                 {category}
               </button>
@@ -46,14 +47,14 @@ const Skills = () => {
 
         {/* Experience Section */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Experience</h2>
+          <h2 className="text-3xl font-bold text-[#05263b] mb-4">Experience</h2>
           <div className="mb-8">
             <p className="text-xl font-semibold">2022</p>
-            <p className="text-lg">Full Stack Web Developer at Sanita Charity Association</p>
+            <p className="text-lg text-[#05263b]">Full Stack Web Developer at Sanita Charity Association</p>
           </div>
           <div className="mb-8">
             <p className="text-xl font-semibold">2023</p>
-            <p className="text-lg">Internship Web Developer at CBE</p>
+            <p className="text-lg text-[#05263b]">Internship Web Developer at CBE</p>
           </div>
         </div>
 
@@ -62,14 +63,16 @@ const Skills = () => {
           {filteredSkills.map((skill, index) => (
             <div
               key={index}
-              className="flex items-center p-4 bg-[#abb5c6] rounded-lg shadow-md hover:bg-gray-200 transition-colors duration-300 transform hover:scale-105"
+              className="flex items-center p-4 bg-[#f9f9f9] rounded-lg shadow-md hover:bg-gray-200 transition-colors duration-300 transform hover:scale-105"
             >
-              <div className="text-3xl mr-4">{skill.icon}</div>
-              <span className="text-xl font-semibold">{skill.name}</span>
+              <div className="text-3xl text-[#05263b] mr-4">{skill.icon}</div>
+              <span className="text-xl font-semibold text-[#05263b]">{skill.name}</span>
             </div>
           ))}
         </div>
       </div>
+      {/* Add the Social Media Links component here */}
+      <SocialMediaLinks position="right" /> {/* Change to "right" if you want it on the right side */}
     </section>
   );
 };
