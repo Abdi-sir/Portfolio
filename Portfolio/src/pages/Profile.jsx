@@ -36,10 +36,38 @@ const SkillCard = ({ profile }) => {
     };
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      // Get the bounding rectangle of the component
+      const cardPosition = cardRef.current.getBoundingClientRect();
+      
+      // Check if the card is in view
+      if (cardPosition.top < window.innerHeight && cardPosition.bottom > 0) {
+        setIsVisible(true); // Set visible if in view
+      } else {
+        setIsVisible(false); // Set invisible if out of view
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    // Call handleScroll once on component mount
+    handleScroll();
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
+
   return (
+    <div className='hover:scale-105 transition-transform duration-300'>
+
+
     <div
       ref={cardRef} // Attach the ref to the card
-      className={`relative flex flex-col items-center justify-center bg-gradient-to-br from-[#aeb8c4] via-white to-[#9ca6b8] p-6 rounded-3xl shadow-lg w-64 md:w-72 hover:scale-105 transition-transform duration-300 ${isVisible ? 'slide-in' : ''}`}
+      className={`relative flex flex-col items-center justify-center bg-gradient-to-br from-[#aeb8c4] via-white to-[#9ca6b8] p-6 rounded-3xl shadow-lg w-64 md:w-72  ${isVisible ? 'slide-in' : ''}`}
     >
       {/* Profile Photo */}
       <div className="relative w-24 h-24 md:w-32 md:h-32 overflow-hidden rounded-full border border-[#163b50] shadow-lg transition-transform transform hover:scale-105">
@@ -100,7 +128,8 @@ const SkillCard = ({ profile }) => {
         </a>
       </div>
       
-    </div>
+    </div> 
+       </div>
   );
 };
 

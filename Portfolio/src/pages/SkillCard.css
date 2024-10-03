@@ -5,7 +5,7 @@
 @keyframes slide-in {
   0% {
     transform: translateX(-30px); /* Start slightly off the left */
-    opacity: 0; /* Start hidden */
+    opacity: 0.5; /* Start hidden */
   }
   100% {
     transform: translateX(0); /* End at original position */
