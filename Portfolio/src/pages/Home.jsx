@@ -123,7 +123,7 @@ function Home() {
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-            opacity: 0.5,
+            opacity: 1,
             transform: `scale(${splineScale})`,
             transition: 'transform 0.3s ease-out',
           }}
@@ -132,26 +132,41 @@ function Home() {
       </div>
 
       {/* Content Overlay */}
-      <div className={`relative flex flex-col md:flex-row items-center justify-center p-4 max-w-[1768px] w-full space-y-8 md:space-y-0 md:space-x-8 z-20 ${isLeftSide ? 'pointer-events-auto' : 'pointer-events-none '} `}>
+      <div className={`relative flex flex-col md:flex-row sm:pt-24 items-center justify-center p-4 max-w-[1768px] w-full space-y-8 md:space-y-0 md:space-x-8 z-20 ${isLeftSide ? 'pointer-events-auto' : 'pointer-events-none '} `}>
         {/* Profile Section */}
         <Profile profile={profile} />
 
         {/* Middle Section */}
         <div className={`flex flex-col justify-center space-y-4 bg-gradient-to-r p-8 rounded-3xl shadow-2xl flex-[0.8] ${showContent ? 'animate__animated animate__slideInUp scroll-animate' : 'opacity-0'} `}>
-          {/* Title */}
-          <h2 className="text-[10vw] md:text-[117px] font-extrabold text-[#05263B]">Developer</h2>
+         {/* Small Hello in the Left Upper Corner */}
+         <div className="absolute top-4 left-4 text-left">
+           <p className="text-sm md:text-md text-[#2F6D80] font-medium">Hello, I'm</p>
+            </div>
 
-          {/* Introductory Text */}
-          <div className="text-left text-gray-800 space-y-2">
-            <p className="text-[8vw] md:text-[64px] font-semibold">
-              <span className="font-bold text-[#2F6D80]">Hey,</span>
-            </p>
-            <p className="text-[8vw] md:text-[64px] font-semibold">
-              <span className="font-bold text-[#2F6D80]">I’m </span>
-              <span className="font-bold text-[#05263B]">{text}</span>
-            </p>
-            <EmailButton />
-          </div>
+              {/* Abdella Siraje in two lines, less bold, adjusted spacing and position */}
+              <h2 className="text-[10vw] md:text-[3rem] font-semibold text-[#05263B] leading-tight tracking-tight md:ml-8">
+                Abdella <br /> Siraje
+              </h2>
+              {/* Introductory Text */}
+              <div className="text-left text-gray-800 space-y-2">
+                {/* Titles Section in One Card with transparency */}
+                <div className="flex flex-col items-end mt-4">
+                  <div className="bg-gradient-to-br from-[rgba(174,184,196,0.8)] to-[rgba(22,59,80,0.8)] border-2 border-[#05263b] p-4 rounded-xl shadow-lg w-full md:w-auto">
+                    <p className="text-[4vw] md:text-[24px] font-light text-white text-right">
+                      Application and Web Developer
+                    </p>
+                    <p className="text-[4vw] md:text-[24px] font-light text-white text-right">
+                      Graphics Designer
+                    </p>
+                    <p className="text-[4vw] md:text-[24px] font-light text-white text-right">
+                      Freelancer
+                    </p>
+                  </div>
+                </div>
+            
+                {/* Email Button */}
+                <EmailButton />
+              </div>
         </div>
       </div>
       
