@@ -8,7 +8,7 @@ const EmailButton = () => {
     >
       <span>Let's Talk</span>
       <AiOutlineMail className="text-blue-600" /> {/* Email Icon */}
-      
+
     </button>
   );
 };

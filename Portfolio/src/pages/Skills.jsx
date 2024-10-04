@@ -63,19 +63,19 @@ const Skills = () => {
         <div className="text-center mb-12">
           <h1 className="text-5xl font-bold text-[#05263b] mb-4">Skills</h1>
           {/* Category Buttons */}
-          <div className="flex justify-center space-x-4">
-            {['All', 'FrontEnd', 'BackEnd', 'Mobile App', 'UI/UX'].map(category => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`py-2 px-4 rounded-lg text-lg font-semibold transition-transform duration-300 ${
-                  selectedCategory === category ? 'bg-[#05263b] text-white scale-105' : 'bg-[#9ca6b8] text-[#05263b]'
-                } hover:bg-[#05263b] hover:text-white transform hover:scale-110`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
+          <div className="flex justify-center flex-wrap space-x-2 md:space-x-4">
+           {['All', 'FrontEnd', 'BackEnd', 'Mobile App', 'UI/UX'].map((category, index) => (
+             <button
+               key={category}
+               onClick={() => setSelectedCategory(category)}
+               className={`py-2 px-3 sm:px-4 rounded-lg text-sm sm:text-lg font-semibold transition-transform duration-300 ${
+                 selectedCategory === category ? 'bg-[#05263b] text-white scale-105' : 'bg-[#9ca6b8] text-[#05263b]'
+               } hover:bg-[#05263b] hover:text-white transform hover:scale-110 mb-2`}  // Added mb-2 for vertical spacing between rows
+             >
+               {category}
+             </button>
+           ))}
+         </div>
         </div>
 
         {/* Experience Section */}
@@ -87,7 +87,7 @@ const Skills = () => {
           </div>
           <div className="mb-8">
             <p className="text-xl font-semibold">2023</p>
-            <p className="text-lg text-[#05263b]">Internship Web Developer at CBE</p>
+            <p className="text-lg text-[#05263b]">Internship Web Developer at Amahara Science and Technology Communication Commission</p>
           </div>
         </div>
 

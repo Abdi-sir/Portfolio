@@ -193,3 +193,9 @@ function Home() {
 }
 
 export default Home;
+
+
+for building and depoloying after edit
+  - first push the updated file
+  - npm run build
+  - npm run deploy

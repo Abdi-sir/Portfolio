@@ -5,7 +5,7 @@ import './Home.css'; // Import custom CSS if needed
 import Spline from '@splinetool/react-spline';
 import Profile from './Profile';
 import EmailButton from './EmailButton';
-import SocialMediaLinks from '../ui/SocialMediaLinks';
+
 
 function Home() {
   const [showContent, setShowContent] = useState(false);
@@ -163,7 +163,6 @@ function Home() {
                     </p>
                   </div>
                 </div>
-            
                 {/* Email Button */}
                 <EmailButton />
               </div>

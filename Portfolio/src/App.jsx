@@ -4,7 +4,7 @@ import Header from './ui/Header'
 import Works from './pages/Works'
 import Skills from './pages/Skills'
 import Contact from './pages/Contact'
-import SocialMediaLinks from './ui/SocialMediaLinks'
+
 function App() {
   return (
     <>
@@ -16,8 +16,7 @@ function App() {
         <Skills />
         <Contact/>
       </main>
-      {/* Add the Social Media Links component here */}
-      <SocialMediaLinks position="right" /> {/* Change to "right" if you want it on the right side */}
+
     </>
 
   )

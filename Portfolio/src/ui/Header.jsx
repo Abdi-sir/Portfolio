@@ -28,7 +28,7 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-[#2F6D80] bg-opacity-90 shadow-lg' : 'bg-[#05263B]' // Black background when not scrolled
+        isScrolled ? 'bg-[#2F6D80] bg-opacity-90 shadow-lg' : 'bg-[#05263B]' 
       } border-b border-black`}
     >
       <nav className="px-4 lg:px-6 py-2.5">
@@ -36,15 +36,15 @@ const Header = () => {
           <a
             onClick={handleLogoClick}
             className="flex items-center text-xl font-semibold cursor-pointer"
-            style={{ fontWeight: 'bold', fontFamily: "'Poppins', sans-serif", fontSize: '1rem', color: 'white' }} // Set logo color to white
+            style={{ fontWeight: 'bold', fontFamily: "'Poppins', sans-serif", fontSize: '1rem', color: 'white' }} 
           >
-            <span className="text-white">&lt;A/&gt;</span> {/* Logo text in white */}
+            <span className="text-white">&lt;A/&gt;</span>
           </a>
 
           <div className="lg:hidden">
             <button
               type="button"
-              className="inline-flex items-center p-2 ml-1 text-sm text-white rounded-lg hover:bg-[#192e41] focus:outline-none focus:ring-2 focus:ring-[#52688f]" // Set button text color to white
+              className="inline-flex items-center p-2 ml-1 text-sm text-white rounded-lg hover:bg-[#192e41] focus:outline-none focus:ring-2 focus:ring-[#52688f]" 
               aria-controls="mobile-menu-2"
               aria-expanded={isOpen}
               onClick={toggleMenu}

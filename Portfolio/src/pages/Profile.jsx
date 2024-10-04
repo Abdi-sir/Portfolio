@@ -12,7 +12,6 @@ const SkillCard = ({ profile }) => {
     mobile: ['Flutter', 'React Native'],
     uiux: ['Figma']
   };
-
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -59,8 +58,6 @@ const SkillCard = ({ profile }) => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
-
-
   return (
 <div className='hover:scale-105 transition-transform duration-300'>
   <div
@@ -83,7 +80,7 @@ const SkillCard = ({ profile }) => {
         View CV
       </a>
     </div>
-    
+
   </div> 
 </div>
 
