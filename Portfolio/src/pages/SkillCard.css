@@ -12,3 +12,61 @@
     opacity: 1; /* End visible */
   }
 }
+.ocean-bg {
+  background: linear-gradient(180deg, #9CA6B8, #9CA6B8); /* Ocean-like gradient */
+  position: relative;
+  overflow: hidden;
+}
+
+.ocean-bg::before, .ocean-bg::after {
+  content: '';
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  top: 0;
+  left: -50%;
+  background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.2) 25%, transparent 1%);
+  animation: wave 10s infinite linear;
+}
+
+.ocean-bg::after {
+  top: auto;
+  bottom: 0;
+  animation-delay: -5s;
+}
+
+@keyframes wave {
+  0% {
+    transform: translateX(0) translateY(0) rotate(0deg);
+  }
+  100% {
+    transform: translateX(-50%) translateY(-10%) rotate(360deg);
+  }
+}
+
+.hover\\:scale-105:hover {
+  transform: scale(1.05);
+}
+
+.transition-transform {
+  transition: transform 0.3s;
+}
+
+.bg-gradient-to-br {
+  background: linear-gradient(to bottom right, #aeb8c4, white, #9ca6b8);
+}
+
+.slide-in {
+  animation: slideIn 1s forwards;
+}
+
+@keyframes slideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

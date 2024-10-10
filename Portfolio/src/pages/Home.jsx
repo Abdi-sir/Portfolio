@@ -106,30 +106,36 @@ function Home() {
   };
   
   return (
-    <section
-      id="home"
-      className="relative w-full min-h-screen flex items-center justify-center overflow-hidden"
+<section
+  id="home"
+  className="relative w-full min-h-screen flex items-center justify-center overflow-hidden"
+  style={{
+    fontFamily: '"Ubuntu", "Ubuntu Placeholder", sans-serif',
+    backgroundColor: '#9CA6B8',
+  }}
+  onMouseMove={handleMouseMove}
+>
+  {/* Spline Background - Positioned to the Left */}
+  <div
+    className={`absolute inset-y-0 right-20 z-10 ${isLeftSide ? 'pointer-events-none' : 'pointer-events-auto'}`}
+    style={{
+      width: '40vw', // Adjust width to control how much space Spline takes
+    }}
+  >
+    <Spline
+      scene="https://prod.spline.design/NFfyEImvMUKHNtuU/scene.splinecode"
       style={{
-        fontFamily: '"Ubuntu", "Ubuntu Placeholder", sans-serif',
-        backgroundColor: '#9CA6B8',
+        width: '100%',
+        height: '100%',
+        objectFit: 'cover',
+        opacity: 1,
+        transform: `scale(${splineScale})`,
+        transition: 'transform 0.3s ease-out',
       }}
-      onMouseMove={handleMouseMove}
-    >
-      {/* Spline Background */}
-      <div className={`absolute inset-0 z-10 ${isLeftSide ? 'pointer-events-none' : 'pointer-events-auto'}`}>
-        <Spline
-          scene="https://prod.spline.design/NFfyEImvMUKHNtuU/scene.splinecode"
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            opacity: 1,
-            transform: `scale(${splineScale})`,
-            transition: 'transform 0.3s ease-out',
-          }}
-          className="spline-element"
-        />
-      </div>
+      className="spline-element"
+    />
+  </div>
+
 
       {/* Content Overlay */}
       <div className={`relative flex flex-col md:flex-row sm:pt-24 items-center justify-center p-4 max-w-[1768px] w-full space-y-8 md:space-y-0 md:space-x-8 z-20 ${isLeftSide ? 'pointer-events-auto' : 'pointer-events-none '} `}>
@@ -150,7 +156,7 @@ function Home() {
               {/* Introductory Text */}
               <div className="text-left text-gray-800 space-y-2">
                 {/* Titles Section in One Card with transparency */}
-                <div className="flex flex-col items-end mt-4">
+                <div className="flex flex-col items-start mt-4">
                   <div className="bg-gradient-to-br from-[rgba(174,184,196,0.8)] to-[rgba(22,59,80,0.8)] border-2 border-[#05263b] p-4 rounded-xl shadow-lg w-full md:w-auto">
                     <p className="text-[4vw] md:text-[24px] font-light text-white text-right">
                       Application and Web Developer
