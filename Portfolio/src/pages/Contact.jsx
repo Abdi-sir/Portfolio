@@ -83,7 +83,7 @@ const Contact = () => {
                     </div>
                     <div className="inline-block mx-2">
                         <a
-                            href="https://www.linkedin.com/in/yourprofile"
+                            href="https://www.linkedin.com/in/abdella-siraje"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-3xl text-[#aeb8c4] hover:text-[#9ca6b8]"
@@ -93,7 +93,7 @@ const Contact = () => {
                     </div>
                     <div className="inline-block mx-2">
                         <a
-                            href="https://github.com/yourprofile"
+                            href="https://github.com/abdi-sir"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-3xl text-[#aeb8c4] hover:text-[#9ca6b8]"
@@ -103,7 +103,7 @@ const Contact = () => {
                     </div>
                     <div className="inline-block mx-2">
                         <a
-                            href="https://wa.me/1234567890"
+                            href="https://wa.me/2519067415600"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-3xl text-[#aeb8c4] hover:text-[#9ca6b8]"
@@ -113,7 +113,7 @@ const Contact = () => {
                     </div>
                     <div className="inline-block mx-2">
                         <a
-                            href="https://t.me/yourprofile"
+                            href="https://t.me/abdellasiraje"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="text-3xl text-[#aeb8c4] hover:text-[#9ca6b8]"
