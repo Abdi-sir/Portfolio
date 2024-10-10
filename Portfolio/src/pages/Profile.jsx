@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import './SkillCard.css'; // Import the external CSS for ocean effect and animations
+import './SkillCard.css'; // Import the external CSS for animations
 
 const SkillCard = ({ profile }) => {
   const [isVisible, setIsVisible] = useState(false); // State to handle visibility for animation
@@ -27,11 +27,14 @@ const SkillCard = ({ profile }) => {
   }, []);
 
   return (
-    <div className='hover:scale-105 transition-transform duration-300'>
-        {/* Profile Photo */}
-        <div className="relative w-28 h-28 md:w-36 md:h-36 lg:w-80 lg:h-80 overflow-hidden  shadow-lg transition-transform transform hover:scale-105">
-          <img src={profile} alt="Profile photo" className="w-full h-full object-contain" />
-        </div>
+    <div
+      ref={cardRef}
+      className={`hover:scale-105 transition-transform duration-300 ${isVisible ? 'slide-in' : 'slide-out'}`}
+    >
+      {/* Profile Photo */}
+      <div className="relative w-28 h-28 md:w-36 md:h-36 lg:w-80 lg:h-80 overflow-hidden shadow-lg transition-transform transform hover:scale-105">
+        <img src={profile} alt="Profile photo" className="w-full h-full object-contain" />
+      </div>
     </div>
   );
 };
