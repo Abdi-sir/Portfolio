@@ -6,12 +6,7 @@ const SkillCard = ({ profile }) => {
   const [isVisible, setIsVisible] = useState(false); // State to handle visibility for animation
   const cardRef = useRef(null); // Create a reference to the card
 
-  const skills = {
-    frontend: ['React', 'Vue'],
-    backend: ['Node.js', 'Sanity'],
-    mobile: ['Flutter', 'React Native'],
-    uiux: ['Figma']
-  };
+
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -66,7 +61,7 @@ const SkillCard = ({ profile }) => {
   >
     {/* Profile Photo */}
     <div className="relative w-28 h-28 md:w-36 md:h-36 lg:w-80 lg:h-80 overflow-hidden rounded-full border border-[#163b50] shadow-lg transition-transform transform hover:scale-105">
-      <img src={profile} alt="Profile photo" className="object-cover w-full h-full" />
+      <img src={profile} alt="Profile photo" className="w-full h-full object-contain" />
     </div>
 
     {/* Download CV Button */}
@@ -83,6 +78,8 @@ const SkillCard = ({ profile }) => {
 
   </div> 
 </div>
+
+
 
   );
 };

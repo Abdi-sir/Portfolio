@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import profile from '../assets/a.png'; // Update path if necessary
+import profile from '../assets/aaa.png'; // Update path if necessary
 import 'animate.css'; // Import Animate.css for animations
 import './Home.css'; // Import custom CSS if needed
 import Spline from '@splinetool/react-spline';

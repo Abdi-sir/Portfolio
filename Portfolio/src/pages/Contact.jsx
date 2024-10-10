@@ -4,7 +4,7 @@ import { FaLinkedin, FaGithub, FaWhatsapp, FaTelegram, FaEnvelope } from 'react-
 const Contact = () => {
     const aboutRef = useRef(null);
     const [showContent, setShowContent] = useState(false);
-    const [splineScale, setSplineScale] = useState(1);
+
 
     useEffect(() => {
         setTimeout(() => {
