@@ -115,26 +115,26 @@ function Home() {
   }}
   onMouseMove={handleMouseMove}
 >
-  {/* Spline Background - Positioned to the Left */}
-  <div
-    className={`absolute inset-y-0 right-20 z-10 ${isLeftSide ? 'pointer-events-none' : 'pointer-events-auto'}`}
-    style={{
-      width: '40vw', // Adjust width to control how much space Spline takes
-    }}
-  >
-    <Spline
-      scene="https://prod.spline.design/NFfyEImvMUKHNtuU/scene.splinecode"
-      style={{
-        width: '100%',
-        height: '100%',
-        objectFit: 'cover',
-        opacity: 1,
-        transform: `scale(${splineScale})`,
-        transition: 'transform 0.3s ease-out',
-      }}
-      className="spline-element"
-    />
-  </div>
+      {/* Spline Background - Positioned to the Left */}
+       <div
+         className={`absolute inset-y-0 right-20 z-10 ${isLeftSide ? 'pointer-events-none' : 'pointer-events-auto'}`}
+         style={{
+           width: '40vw', // Adjust width to control how much space Spline takes
+         }}
+       >
+         <Spline
+           scene="https://prod.spline.design/NFfyEImvMUKHNtuU/scene.splinecode"
+           style={{
+             width: '100%',
+             height: '100%',
+             objectFit: 'cover',
+             opacity: 1,
+             transform: `scale(${splineScale})`,
+             transition: 'transform 0.3s ease-out',
+           }}
+           className="spline-element"
+         />
+       </div>
 
 
       {/* Content Overlay */}
