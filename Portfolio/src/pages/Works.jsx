@@ -3,20 +3,20 @@ import { FaEye, FaGithub } from 'react-icons/fa';
 
 const projects = [
   {
-    title: "Project 1",
-    link: "https://example.com/project1",
-    github: "https://github.com/username/project1",
-    image: "https://via.placeholder.com/300",
-    languages: ["HTML", "CSS", "JavaScript"],
-    description: "A brief description of Project 1.",
+    title: "Netflix Clone",
+    link: "https://abdi-sir.github.io/netflix-clone-abd/",
+    github: "https://github.com/Abdi-Sir/netflix-clone-abd",
+    image: "https://via.placeholder.com/300", // Replace with an actual image URL for your project
+    languages: ["React", "Vite", "Bootstrap", "Material UI", "Node.js", "API"],
+    description: "A Netflix-inspired web application built using React, Vite, Material UI, and various APIs for fetching content.",
   },
   {
-    title: "Project 2",
-    link: "https://example.com/project2",
-    github: "https://github.com/username/project2",
-    image: "https://via.placeholder.com/300",
-    languages: ["React", "Node.js"],
-    description: "A brief description of Project 2.",
+    title: "Apple Clone",
+    link: "https://clone-35c3d3.netlify.app/",
+    github: "https://github.com/Abdi-Sir/full-stack-apple-clone", // Replace with your GitHub repo link
+    image: "https://via.placeholder.com/300", // Replace with an actual image URL for your project
+    languages: ["React", "Vite", "Bootstrap", "API", "Node.js"],
+    description: "A clone of the Apple website showcasing React components and responsive design with Bootstrap.",
   },
   {
     title: "Project 3",
