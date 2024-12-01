@@ -18,29 +18,29 @@ function About() {
       const scrollPosition = window.scrollY;
       const windowHeight = window.innerHeight;
 
-      // Scale effect based on scroll
-      if (scrollPosition <= windowHeight) {
-        const scaleFactor = 1 + scrollPosition / windowHeight;
-        setSplineScale(scaleFactor > 1.8 ? 1.8 : scaleFactor); // Slightly reduced max scale
-      }
+      // // Scale effect based on scroll
+      // if (scrollPosition <= windowHeight) {
+      //   const scaleFactor = 1 + scrollPosition / windowHeight;
+      //   setSplineScale(scaleFactor > 1.8 ? 1.8 : scaleFactor); // Slightly reduced max scale
+      // }
 
-      // Smooth scroll to the next section
-      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-        window.scrollTo({
-          top: window.innerHeight,
-          behavior: 'smooth',
-        });
-      }
+      // // Smooth scroll to the next section
+      // if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+      //   window.scrollTo({
+      //     top: window.innerHeight,
+      //     behavior: 'smooth',
+      //   });
+      // }
 
       // Animate elements on scroll
-      document.querySelectorAll('.scroll-animate').forEach((element) => {
-        const rect = element.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
-          element.classList.add('animate__animated', 'animate__slideInUp');
-        } else {
-          element.classList.remove('animate__slideInUp');
-        }
-      });
+      // document.querySelectorAll('.scroll-animate').forEach((element) => {
+      //   const rect = element.getBoundingClientRect();
+      //   if (rect.top < window.innerHeight && rect.bottom > 0) {
+      //     element.classList.add('animate__animated', 'animate__slideInUp');
+      //   } else {
+      //     element.classList.remove('animate__slideInUp');
+      //   }
+      // });
     };
 
     const observer = new IntersectionObserver(
@@ -71,7 +71,7 @@ function About() {
   return (
     <section
       id="about"
-      ref={aboutRef}
+    
       className={`min-h-screen bg-[#FFFFFF] flex items-center py-16 slide-in ${showContent ? 'fade-in' : 'opacity-0'} scroll-animate`}
     >
       <div className="container mx-auto px-6">
@@ -131,7 +131,7 @@ function About() {
               },
             ].map((item, index) => (
               <div className='hover:scale-105 transition-transform duration-300'>
-              <div key={index} className="bg-[#aeb8c4] p-6 rounded-lg shadow-lg scroll-animate">
+              <div key={item.id} className="bg-[#aeb8c4] p-6 rounded-lg shadow-lg scroll-animate">
                 <img src={item.img} alt={item.title} className="w-full h-40 object-cover rounded mb-4 hover:scale-105 transition-transform duration-300" />
                 <h3 className="text-2xl font-bold text-[#163b50] mb-2">{item.title}</h3>
                 <p className="text-[#141414]">{item.description}</p>

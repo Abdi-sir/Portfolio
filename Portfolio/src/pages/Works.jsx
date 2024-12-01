@@ -54,7 +54,7 @@ function Works() {
               {/* Project Container */}
               <div
                 className="relative bg-white rounded-lg shadow-lg overflow-hidden group transition-transform transform hover:scale-105"
-                style={{ width: "80%", height: "100%" }}
+                style={{ width: "70%", height: "300px" }}
               >
                 {/* Project Image */}
                 <img

@@ -6,70 +6,70 @@ const Contact = () => {
     const [showContent, setShowContent] = useState(false);
 
 
-    useEffect(() => {
-        setTimeout(() => {
-            setShowContent(true);
-        }, 500);
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         setShowContent(true);
+    //     }, 500);
 
-        const handleScroll = () => {
-            const scrollPosition = window.scrollY;
-            const windowHeight = window.innerHeight;
+    //     const handleScroll = () => {
+    //         const scrollPosition = window.scrollY;
+    //         const windowHeight = window.innerHeight;
 
-            // Scale effect based on scroll
-            if (scrollPosition <= windowHeight) {
-                const scaleFactor = 1 + scrollPosition / windowHeight;
-                setSplineScale(scaleFactor > 1.8 ? 1.8 : scaleFactor); // Slightly reduced max scale
-            }
+    //         // Scale effect based on scroll
+    //         if (scrollPosition <= windowHeight) {
+    //             const scaleFactor = 1 + scrollPosition / windowHeight;
+    //             setSplineScale(scaleFactor > 1.8 ? 1.8 : scaleFactor); // Slightly reduced max scale
+    //         }
 
-            // Smooth scroll to the next section
-            if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
-                window.scrollTo({
-                    top: window.innerHeight,
-                    behavior: 'smooth',
-                });
-            }
+    //         // Smooth scroll to the next section
+    //         if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+    //             window.scrollTo({
+    //                 top: window.innerHeight,
+    //                 behavior: 'smooth',
+    //             });
+    //         }
 
-            // Animate elements on scroll
-            document.querySelectorAll('.scroll-animate').forEach((element) => {
-                const rect = element.getBoundingClientRect();
-                if (rect.top < window.innerHeight && rect.bottom > 0) {
-                    element.classList.add('animate__animated', 'animate__slideInUp');
-                } else {
-                    element.classList.remove('animate__slideInUp');
-                }
-            });
-        };
+    //         // Animate elements on scroll
+    //         document.querySelectorAll('.scroll-animate').forEach((element) => {
+    //             const rect = element.getBoundingClientRect();
+    //             if (rect.top < window.innerHeight && rect.bottom > 0) {
+    //                 element.classList.add('animate__animated', 'animate__slideInUp');
+    //             } else {
+    //                 element.classList.remove('animate__slideInUp');
+    //             }
+    //         });
+    //     };
 
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry) => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('slide-in-active');
-                    }
-                });
-            },
-            { threshold: 0.2 }
-        );
+    //     const observer = new IntersectionObserver(
+    //         (entries) => {
+    //             entries.forEach((entry) => {
+    //                 if (entry.isIntersecting) {
+    //                     entry.target.classList.add('slide-in-active');
+    //                 }
+    //             });
+    //         },
+    //         { threshold: 0.2 }
+    //     );
 
-        if (aboutRef.current) {
-            observer.observe(aboutRef.current);
-        }
+    //     if (aboutRef.current) {
+    //         observer.observe(aboutRef.current);
+    //     }
 
-        window.addEventListener('scroll', handleScroll);
+    //     window.addEventListener('scroll', handleScroll);
 
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-            if (aboutRef.current) {
-                observer.unobserve(aboutRef.current);
-            }
-        };
-    }, []);
+    //     return () => {
+    //         window.removeEventListener('scroll', handleScroll);
+    //         if (aboutRef.current) {
+    //             observer.unobserve(aboutRef.current);
+    //         }
+    //     };
+    // }, []);
 
     return (
         <section
             id="contact"
-            ref={aboutRef}
-            className={`min-h-screen bg-[#EAEFF2] py-16 transition-opacity duration-500 ${showContent ? 'opacity-100' : 'opacity-0'}`}
+        
+            className={`min-h-screen bg-[#EAEFF2] py-16 transition-opacity duration-500 'opacity-100'}`}
         >
             <div className="container mx-auto px-6">
                 <h1 className="text-5xl font-bold text-[#05263b] mb-12 text-center">Contact Me</h1>
