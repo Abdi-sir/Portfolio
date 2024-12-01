@@ -138,7 +138,7 @@ function Home() {
 
 
       {/* Content Overlay */}
-      <div className={`relative flex flex-col md:flex-row sm:pt-24 items-center justify-center p-4 max-w-[1768px] w-full space-y-8 md:space-y-0 md:space-x-8 z-20 ${isLeftSide ? 'pointer-events-auto' : 'pointer-events-none '} `}>
+      <div className={`relative flex flex-col-reverse md:flex-row  sm:pt-24 items-center justify-center p-4 max-w-[1768px] w-full space-y-8 md:space-y-0 md:space-x-8 z-20 ${isLeftSide ? 'pointer-events-auto' : 'pointer-events-none '} `}>
         {/* Profile Section */}
         <Profile profile={profile} />
 

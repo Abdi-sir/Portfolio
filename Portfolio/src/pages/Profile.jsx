@@ -60,7 +60,7 @@ const SkillCard = ({ profile }) => {
     className={` ${isVisible ? 'slide-in' : ''}`}
   >
     {/* Profile Photo */}
-    <div className="relative w-28 h-28 md:w-36 md:h-36 lg:w-80 lg:h-80 overflow-hidden shadow-lg transition-transform transform hover:scale-105 ">
+    <div className="relative w-80 h-80  overflow-hidden shadow-lg transition-transform transform hover:scale-105 ">
       <img src={profile} alt="Profile photo" className="w-full h-full object-contain" />
     </div>
   </div> 

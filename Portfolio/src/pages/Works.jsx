@@ -48,13 +48,13 @@ function Works() {
           <h1 className="text-5xl font-bold text-[#05263b] mb-4">Projects</h1>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 ">
           {projects.map((project, index) => (
             <div key={index} className="flex flex-col items-center">
               {/* Project Container */}
               <div
                 className="relative bg-white rounded-lg shadow-lg overflow-hidden group transition-transform transform hover:scale-105"
-                style={{ width: "90%", height: "200px" }}
+                style={{ width: "80%", height: "100%" }}
               >
                 {/* Project Image */}
                 <img
