@@ -71,13 +71,15 @@ const Contact = () => {
         
             className={`min-h-screen bg-[#EAEFF2] py-16 transition-opacity duration-500 'opacity-100'}`}
         >
-            <div className="container mx-auto px-6">
+            <div className="container mx-auto px-6 "
+           >
                 <h1 className="text-5xl font-bold text-[#05263b] mb-12 text-center">Contact Me</h1>
 
                 {/* Contact Icons */}
-                <div className="text-center mb-8">
+                <div className="text-center  mb-8  scroll-animate"
+                  >
                     <div className="inline-block mx-2">
-                        <a href="mailto:abdellasiraje00@gmail.com" className="text-3xl text-[#aeb8c4] hover:text-[#9ca6b8]">
+                        <a href="mailto:abdellasiraje00@gmail.com" className="text-3xl text-[#05263b] hover:text-[#9ca6b8]">
                             <FaEnvelope />
                         </a>
                     </div>
@@ -86,7 +88,7 @@ const Contact = () => {
                             href="https://www.linkedin.com/in/abdella-siraje"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-3xl text-[#aeb8c4] hover:text-[#9ca6b8]"
+                            className="text-3xl text-[#05263b] hover:text-[#9ca6b8]"
                         >
                             <FaLinkedin />
                         </a>
@@ -96,17 +98,17 @@ const Contact = () => {
                             href="https://github.com/abdi-sir"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-3xl text-[#aeb8c4] hover:text-[#9ca6b8]"
+                            className="text-3xl text-[#05263b] hover:text-[#9ca6b8]"
                         >
                             <FaGithub />
                         </a>
                     </div>
                     <div className="inline-block mx-2">
                         <a
-                            href="https://wa.me/2519067415600"
+                            href="https://wa.me/251906415600"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-3xl text-[#aeb8c4] hover:text-[#9ca6b8]"
+                            className="text-3xl text-[#05263b] hover:text-[#9ca6b8]"
                         >
                             <FaWhatsapp />
                         </a>
@@ -116,7 +118,7 @@ const Contact = () => {
                             href="https://t.me/abdellasiraje"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-3xl text-[#aeb8c4] hover:text-[#9ca6b8]"
+                            className="text-3xl text-[#05263b] hover:text-[#9ca6b8]"
                         >
                             <FaTelegram />
                         </a>

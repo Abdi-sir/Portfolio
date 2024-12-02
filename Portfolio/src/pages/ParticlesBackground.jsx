@@ -56,7 +56,7 @@ function ParticlesBackground() {
               type: "circle",
             },
             opacity: {
-              value: 0.5,
+              value: 1,
               random: false,
               anim: {
                 enable: false,
@@ -118,18 +118,6 @@ function ParticlesBackground() {
           retina_detect: true,
         }}
       />
-      <div
-        style={{
-          position: "absolute",
-          top: "50%",
-          left: "50%",
-          transform: "translate(-50%, -50%)",
-          zIndex: 1,
-          color: "#ffffff",
-          textAlign: "center",
-        }}
-      >
-      </div>
     </div>
   );
 }
